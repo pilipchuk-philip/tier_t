@@ -16,8 +16,7 @@ async def get_short_url(url: schemas.URLBase, db: Session = Depends(models.get_d
     return await crud.create_short_url(db, url)
 
 
-
-
 @app.post("/get-real-url")
 async def get_real_url(new_url: str, db: Session = Depends(models.get_db)):
-    pass
+    """Get real url and update click counter"""
+    return await crud.show_real_url_scheme(db, new_url)
