@@ -12,7 +12,6 @@ async def create_short_url(db: Session, url: schemas.URLScheme):
     return generate_url
 
 
-
 async def get_url_by_key(db: Session, new_url: str):
     return db.query(models.URL).filter(models.URL.new_url == new_url).first()
 
@@ -24,9 +23,9 @@ async def updated_url_obj(db: Session, url_obj):
         return url_obj
     return errors.raise_bad_request(message="Url was not found")
 
+
 async def show_real_url_scheme(db: Session, new_url: str) -> schemas.URLScheme:
     url_obj = await updated_url_obj(db, get_url_by_key(db, new_url))
     return schemas.URLScheme(
         main_url=url_obj.main_url, new_url=url_obj.new_url, clicks=url_obj.clicks
     )
-

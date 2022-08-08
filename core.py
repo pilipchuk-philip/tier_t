@@ -13,4 +13,3 @@ def create_random_url():
     )
 
     return f"{get_settings().base_url}/{short_url}"
-

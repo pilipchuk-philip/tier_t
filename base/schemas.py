@@ -11,4 +11,3 @@ class URLScheme(URLBase):
 
     class Config:
         orm_mode = True
-
