@@ -10,7 +10,12 @@ app = FastAPI()
 
 @app.post("/get-short-url", response_model=schemas.URLScheme)
 async def get_short_url(url: schemas.URLBase, db: Session = Depends(models.get_db)):
-    pass
+    """Shorter for url"""
+    if not validators.url(url.main_url):
+        errors.raise_bad_request(message="Your provided URL is not valid")
+    return await crud.create_short_url(db, url)
+
+
 
 
 @app.post("/get-real-url")

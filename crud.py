@@ -5,7 +5,12 @@ from .base import errors, models, schemas
 
 
 async def create_short_url(db: Session, url: schemas.URLScheme):
-    pass
+    generate_url = models.URL(main_url=url.main_url, new_url=core.create_random_url())
+    db.add(generate_url)
+    db.commit()
+    db.refresh(generate_url)
+    return generate_url
+
 
 async def get_url_by_key(db: Session, new_url: str):
     pass
