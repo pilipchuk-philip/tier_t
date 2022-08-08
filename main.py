@@ -2,8 +2,8 @@ import validators
 from fastapi import Depends, FastAPI
 from sqlalchemy.orm import Session
 
-from . import crud
-from .base import errors, models, schemas
+import crud
+from base import errors, models, schemas
 
 app = FastAPI()
 

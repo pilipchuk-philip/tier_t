@@ -1,7 +1,7 @@
 import string
 from random import choice
 
-from app.base.config import get_settings
+from base.config import get_settings
 
 
 def create_random_url():

@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
 
-from app.base import database
+from base import database
 
 
 class URL(database.Base):

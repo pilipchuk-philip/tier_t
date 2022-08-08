@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from . import core
-from .base import errors, models, schemas
+import core
+from base import errors, models, schemas
 
 
 async def create_short_url(db: Session, url: schemas.URLScheme):
